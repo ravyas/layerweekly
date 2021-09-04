@@ -1,11 +1,18 @@
 package com.layer.domain;
 
-import java.util.List;
+public class Topic extends Entity {
 
-public class Topic {
+    private String topic;
 
-    private List<Article> articles;
+    public Topic(String topic) {
+        this.topic = topic;
+    }
 
+    public String getTopic() {
+        return topic;
+    }
 
-
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
 }

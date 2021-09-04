@@ -2,6 +2,10 @@ package com.layer.domain.users;
 
 public class User {
 
+    public User(Role role) {
+        this.role = role;
+    }
+
     public enum Role {
         COPYWRITER, JOURNALIST, CHIEFEDITOR;
     }

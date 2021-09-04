@@ -1,19 +1,17 @@
 package com.layer.domain;
 
-import com.layer.domain.users.User;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class LayerWeeklyMagazine {
+public class LayerWeeklyMagazine extends Entity {
 
-    private List<Topic> topics = new ArrayList<>();
+    private List<WeeklyEdition> editions = new ArrayList<>();
 
-    public void addTopics(User user, Topic topic) throws InvalidUserException{
-        if(!User.Role.CHIEFEDITOR.equals(user.getRole())) {
-            throw new InvalidUserException();
-        }
-        topics.add(topic);
+    public List<WeeklyEdition> getEditions() {
+        return editions;
     }
 
+    public void setEditions(List<WeeklyEdition> editions) {
+        this.editions = editions;
+    }
 }
