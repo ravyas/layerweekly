@@ -3,7 +3,9 @@ package io.layer.weekly.domain.edition;
 import io.layer.weekly.domain.Entity;
 import io.layer.weekly.domain.InvalidUserException;
 import io.layer.weekly.domain.article.Article;
+import io.layer.weekly.domain.article.Content;
 import io.layer.weekly.domain.article.DraftArticle;
+import io.layer.weekly.domain.article.Heading;
 import io.layer.weekly.domain.users.User;
 
 import java.util.ArrayList;
@@ -34,8 +36,18 @@ public class WeeklyEdition extends Entity {
     public Article publishArticle(DraftArticle draftArticle) {
         Article article = new Article();
         article.setTitle(draftArticle.getTitle());
-//        article.setHeadings();
+        article.setHeadings(convertToHeadings(draftArticle.getContent()));
         return article;
+    }
+
+    private List<Heading> convertToHeadings(Content content) {
+        List<Heading> headings = new ArrayList<>();
+        String heading = content.getContent();
+        if(content.getContent().contains(" ")) {
+            heading = content.getContent().split(" ")[0];
+        }
+        headings.add(new Heading(heading, content.getContent()));
+        return headings;
     }
 
     public List<Topic> getTopics() {
