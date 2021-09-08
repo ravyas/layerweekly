@@ -1,4 +1,6 @@
-package io.layer.weekly.domain;
+package io.layer.weekly.domain.edition;
+
+import io.layer.weekly.domain.Entity;
 
 public class Topic extends Entity {
 

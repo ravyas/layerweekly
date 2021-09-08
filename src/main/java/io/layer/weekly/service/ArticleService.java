@@ -1,8 +1,14 @@
 package io.layer.weekly.service;
 
 import io.layer.weekly.dao.ArticleRepository;
-import io.layer.weekly.domain.Article;
-import io.layer.weekly.domain.DraftArticle;
+import io.layer.weekly.domain.InvalidUserException;
+import io.layer.weekly.domain.article.Article;
+import io.layer.weekly.domain.article.DraftArticle;
+import io.layer.weekly.domain.edition.Topic;
+import io.layer.weekly.domain.users.CopyWriter;
+import io.layer.weekly.domain.users.Journalist;
+
+import java.util.List;
 
 public class ArticleService {
 
@@ -12,12 +18,16 @@ public class ArticleService {
         this.articleRepository = articleRepository;
     }
 
-    public Article publishArticle(DraftArticle draftArticle) {
-        return draftArticle.publishArticle();
+    public void submitDraftArticle(DraftArticle draftArticle) {
+        articleRepository.saveArticle(draftArticle);
     }
 
-    public void submitDraftArticle() {
-        articleRepository.saveArticle();
+    public void updateDraftArticle(Journalist journalist, DraftArticle draftArticle, String title, String content, List<Topic> connectedTopics) throws InvalidUserException {
+        draftArticle.updateDraftArticle(journalist, title, content, connectedTopics);
+    }
+
+    public boolean assignDraftArticleToCopyWriter(CopyWriter copyWriter, DraftArticle draftArticle) {
+        return draftArticle.assignToCopyWriter(copyWriter);
     }
 
 }

@@ -1,9 +1,12 @@
 package io.layer.weekly.domain.users;
 
-public class User {
+import io.layer.weekly.domain.Entity;
 
-    public User(Role role) {
+public class User extends Entity {
+
+    public User(Role role, String name) {
         this.role = role;
+        this.name = new Name(name);
     }
 
     public enum Role {
@@ -11,6 +14,8 @@ public class User {
     }
 
     private Role role;
+
+    private Name name;
 
     public Role getRole() {
         return role;

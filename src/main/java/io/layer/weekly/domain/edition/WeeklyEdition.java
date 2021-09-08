@@ -1,5 +1,9 @@
-package io.layer.weekly.domain;
+package io.layer.weekly.domain.edition;
 
+import io.layer.weekly.domain.Entity;
+import io.layer.weekly.domain.InvalidUserException;
+import io.layer.weekly.domain.article.Article;
+import io.layer.weekly.domain.article.DraftArticle;
 import io.layer.weekly.domain.users.User;
 
 import java.util.ArrayList;
@@ -20,7 +24,7 @@ public class WeeklyEdition extends Entity {
         this.setId(UUID.randomUUID().toString());
     }
 
-    public void addTopic(User user, Topic topic) throws InvalidUserException{
+    public void addTopic(User user, Topic topic) throws InvalidUserException {
         if(!User.Role.CHIEFEDITOR.equals(user.getRole())) {
             throw new InvalidUserException();
         }
@@ -50,8 +54,10 @@ public class WeeklyEdition extends Entity {
         if(!User.Role.JOURNALIST.equals(user.getRole())) {
             throw new InvalidUserException("Only journalist can submit the draft article");
         }
+        draftArticle.setJournalistAssigneeId(user.getId());
         draftArticles.add(draftArticle);
     }
+
 
     public void setDraftArticles(List<DraftArticle> draftArticles) {
         this.draftArticles = draftArticles;

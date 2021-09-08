@@ -7,4 +7,3 @@ Implementation contains following 3 user stories-
 
 ### Assumptions:
 * Only draft article would be connected to multiple topics but once published would have single reference to Topic
-* Chief editor assigns draft articles to copywriters

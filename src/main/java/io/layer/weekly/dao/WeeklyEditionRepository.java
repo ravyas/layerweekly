@@ -1,6 +1,6 @@
 package io.layer.weekly.dao;
 
-import io.layer.weekly.domain.WeeklyEdition;
+import io.layer.weekly.domain.edition.WeeklyEdition;
 
 import java.util.ArrayList;
 import java.util.List;

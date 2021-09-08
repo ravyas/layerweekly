@@ -9,7 +9,7 @@ Feature: Weekly Edition
   Scenario: Journalist submit draft article for publishing
     Given Topics has been added to the new edition
     When Journalist submits draft article
-    Then Draft article saved and can be accessed by Copywriters
+    Then Draft article saved and can be assigned by Copywriters
 
   Scenario: Copywriter suggests changes in draft article
     Given Draft article has been published by journalist

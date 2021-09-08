@@ -1,4 +1,7 @@
-package io.layer.weekly.domain;
+package io.layer.weekly.domain.magazine;
+
+import io.layer.weekly.domain.Entity;
+import io.layer.weekly.domain.edition.WeeklyEdition;
 
 import java.util.ArrayList;
 import java.util.List;

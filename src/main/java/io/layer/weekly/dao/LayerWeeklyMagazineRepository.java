@@ -1,7 +1,6 @@
 package io.layer.weekly.dao;
 
-import io.layer.weekly.domain.LayerWeeklyMagazine;
-import io.layer.weekly.service.LayerWeeklyMagazineService;
+import io.layer.weekly.domain.magazine.LayerWeeklyMagazine;
 
 public class LayerWeeklyMagazineRepository {
 
